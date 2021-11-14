@@ -16,7 +16,7 @@ static void log(const tjs_char *format, ...)
 	va_end(args);
 }
 
-#include "../layerExDraw/LayerExBase.hpp"
+#include "layerExBase.hpp"
 
 /*
  * アウトラインベースのテキスト描画メソッドの追加
