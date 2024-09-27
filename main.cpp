@@ -1,4 +1,4 @@
-#include "ncbind/ncbind.hpp"
+#include "ncbind.hpp"
 #include <stdio.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
