@@ -1,22 +1,14 @@
-#include "ncbind/ncbind.hpp"
+#include "ncbind.hpp"
 #include <stdio.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-/**
- * ログ出力用
- */
-static void log(const tjs_char *format, ...)
-{
-	va_list args;
-	va_start(args, format);
-	tjs_char msg[1024];
-	_vsnwprintf(msg, 1024, format, args);
-	TVPAddLog(msg);
-	va_end(args);
-}
 
+#if 1
 #include "layerExBase.hpp"
+#else
+#include "../layerExImage/LayerExBase.hpp"
+#endif
 
 /*
  * アウトラインベースのテキスト描画メソッドの追加
@@ -43,13 +35,13 @@ public:
 		{
 			iTJSDispatch2 *layerobj = layer.AsObjectNoAddRef();
 			tTJSVariant var;
-			layerobj->PropGet(0, L"imageWidth", NULL, &var, layerobj);
+			layerobj->PropGet(0, TJS_W("imageWidth"), NULL, &var, layerobj);
 			width = (tjs_int)var;
-			layerobj->PropGet(0, L"imageHeight", NULL, &var, layerobj);
+			layerobj->PropGet(0, TJS_W("imageHeight"), NULL, &var, layerobj);
 			height = (tjs_int)var;
-			layerobj->PropGet(0, L"mainImageBuffer", NULL, &var, layerobj);
+			layerobj->PropGet(0, TJS_W("mainImageBuffer"), NULL, &var, layerobj);
 			buffer = (unsigned char*)(tjs_intptr_t)(tTVInteger)var;
-			layerobj->PropGet(0, L"mainImageBufferPitch", NULL, &var, layerobj);
+			layerobj->PropGet(0, TJS_W("mainImageBufferPitch"), NULL, &var, layerobj);
 			pitch = (tjs_int)var;
 		}
 
