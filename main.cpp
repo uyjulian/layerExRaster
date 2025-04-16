@@ -36,7 +36,7 @@ public:
 			layerobj->PropGet(0, TJS_W("imageHeight"), NULL, &var, layerobj);
 			height = (tjs_int)var;
 			layerobj->PropGet(0, TJS_W("mainImageBuffer"), NULL, &var, layerobj);
-			buffer = (unsigned char*)(tjs_int64)var;
+			buffer = (unsigned char*)(tjs_intptr_t)(tTVInteger)var;
 			layerobj->PropGet(0, TJS_W("mainImageBufferPitch"), NULL, &var, layerobj);
 			pitch = (tjs_int)var;
 		}
