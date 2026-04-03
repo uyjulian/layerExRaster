@@ -7,7 +7,7 @@
 #if 1
 #include "layerExBase.hpp"
 #else
-#include "../layerExImage/LayerExBase.hpp"
+#include "../layerExImage/layerExBase.hpp"
 #endif
 
 /*
